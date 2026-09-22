@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+:root {
+  --font-sans: "Manrope", "Segoe UI", sans-serif;
+  --font-display: "Sora", "Segoe UI", sans-serif;
+
+  /* Light theme palette */
+  --color-primary: 22 78 99;
+  --color-secondary: 14 116 144;
+  --color-accent: 6 182 212;
+  --color-background: 242 246 252;
+  --color-foreground: 12 23 40;
+  --color-surface: 255 255 255;
+  --color-muted: 78 98 122;
+  --color-border: 177 198 229;
+  --color-ring: 8 145 178;
+  --color-success: 16 185 129;
+
+  --orb-1: 191 219 254;
+  --orb-2: 186 230 253;
+  --orb-3: 199 210 254;
+
+  --shadow-soft: 0 20px 45px rgba(6, 35, 74, 0.1);
+  --shadow-glow: 0 0 35px rgba(6, 182, 212, 0.18);
+}
+
+.dark {
+  /* Dark theme palette with subtle neon accent */
+  --color-primary: 133 230 255;
+  --color-secondary: 80 145 255;
+  --color-accent: 0 240 255;
+  --color-background: 7 12 27;
+  --color-foreground: 233 242 255;
+  --color-surface: 18 25 45;
+  --color-muted: 145 165 196;
+  --color-border: 62 78 112;
+  --color-ring: 56 189 248;
+  --color-success: 52 211 153;
+
+  --orb-1: 34 211 238;
+  --orb-2: 59 130 246;
+  --orb-3: 168 85 247;
+
+  --shadow-soft: 0 24px 60px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 45px rgba(0, 240, 255, 0.23);
+}
+
+@theme inline {
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
+
+  --color-primary: rgb(var(--color-primary));
+  --color-secondary: rgb(var(--color-secondary));
+  --color-accent: rgb(var(--color-accent));
+  --color-background: rgb(var(--color-background));
+  --color-foreground: rgb(var(--color-foreground));
+  --color-surface: rgb(var(--color-surface));
+  --color-muted: rgb(var(--color-muted));
+  --color-border: rgb(var(--color-border));
+  --color-ring: rgb(var(--color-ring));
+  --color-success: rgb(var(--color-success));
+}
+
+@layer base {
+  html,
+  body {
+    min-height: 100%;
+  }
+
+  html {
+    scroll-padding-top: 6rem;
+  }
+
+  body {
+    color: rgb(var(--color-foreground));
+    background-color: rgb(var(--color-background));
+    font-family: var(--font-sans);
+  }
+
+  * {
+    border-color: rgb(var(--color-border) / 0.45);
+  }
+
+  ::selection {
+    background-color: rgb(var(--color-accent) / 0.25);
+    color: rgb(var(--color-foreground));
+  }
+}
+
+@utility glass-card {
+  @apply bg-surface/60 border border-border/55 backdrop-blur-md shadow-[var(--shadow-soft)];
+}
+
+@utility neon-ring {
+  box-shadow: var(--shadow-glow);
+}
+
+@utility section-shell {
+  @apply mx-auto w-full max-w-6xl px-4 sm:px-6;
+}
+
+@utility bento-grid {
+  @apply grid gap-4 sm:gap-5 md:gap-6;
+}
